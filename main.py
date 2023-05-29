@@ -27,7 +27,10 @@ while len(guessed_states) != state_df["state"].count():
         state_turtle.write(f"{user_input}", False, "center", ("Fira-sans", 18, "normal"))
         guessed_states.append(user_input)
 
-
+with open("missed_state.txt", "w") as data:
+    for state in states_name:
+        if state not in guessed_states:
+            data.writelines(f"{state}\nMis")
 
 # Function to get the coordinates of a click
 # def get_coordinates(x, y):
